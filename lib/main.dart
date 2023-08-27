@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'utls/binding/homebinding.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
+  runApp(WeatherApp());
 }
 
-class _MyAppState extends State<MyApp> {
+class WeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => HomeScreen(),
+          binding: HomeBinding(),
+        )
+      ],
+    );
   }
 }
